@@ -40,7 +40,7 @@ parity ui --config ./kovan-config.toml --ui-no-validation
   * UI version without no validation flag (NOT WORKING). See https://github.com/paritytech/parity/issues/7393
 
 ```
-parity ui --config ./kovan-config.toml 
+parity ui --config ./kovan-config.toml -lrpc=trace
 ```
 
   * It prompts you with the following:
@@ -58,7 +58,7 @@ parity signer new-token --config /Users/Ls/code/blockchain/parity-docker/kovan-c
   * CLI version
 
 ```
-parity --config ./kovan-config.toml 
+parity --config ./kovan-config.toml -lrpc=trace
 ```
 
 * Acquire Kovan Ether https://github.com/kovan-testnet/config
@@ -84,13 +84,13 @@ parity account new --chain ropsten --keys-path "/Users/Ls/Library/Application Su
   * UI version
 
 ```
-parity ui --config ./kovan-config.toml --ui-no-validation
+parity ui --config ./kovan-config.toml --ui-no-validation -lrpc=trace
 ```
 
   * CLI version
 
 ```
-parity --config ./ropsten-config.toml 
+parity --config ./ropsten-config.toml -lrpc=trace
 ```
 
 ## References:
@@ -101,6 +101,9 @@ parity --config ./ropsten-config.toml
 * Kovan TestNet Config - https://github.com/kovan-testnet/config
 
 * Parity Setting up two nodes witn PoA - https://github.com/paritytech/parity/wiki/Demo-PoA-tutorial
+
+* Rinkeby Testnet - http://rinkeby.io
+  * Crypto Faucey - Obtain Test Ether
 
 
 

@@ -158,6 +158,9 @@ hosts = ["none"]
 [mining]
 # Default: "None"
 author = "0x56183a35c057f32dc71307dec8b8c60da055eae2"
+# Default: "None"
+# WARNING: Cannot set engine signer on a PoW chain (i.e. Ropsten)
+# engine_signer = "0x56183a35c057f32dc71307dec8b8c60da055eae2"
 # Default: false
 force_sealing = true
 # OPTIONS: "none", "own", "ext", "all"
