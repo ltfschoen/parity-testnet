@@ -69,6 +69,12 @@ parity --config ./kovan-config.toml -lrpc=trace
 
 * Create ropsten-config.toml
 
+* Add Ropsten peers to ropstenpeers.txt (to allow connection to peers for syncing) - https://github.com/ethereum/ropsten
+
+```
+echo -e "enode://20c9ad97c081d63397d7b685a412227a40e23c8bdc6688c6f37e97cfbc22d2b4d1db1510d8f61e6a8866ad7f0e17c02b14182d37ea7c3c8b9c2683aeb6b733a1@52.169.14.227:30303\nenode://6ce05930c72abc632c58e2e4324f7c7ea478cec0ed4fa2528982cf34483094e9cbc9216e7aa349691242576d552a2a56aaeae426c5303ded677ce455ba1acd9d@13.84.180.240:30303" >> ropstenpeers.txt
+```
+
 * Create a signer account for use by the Miner in the Ropsten Network. Entered and confirmed a fake password when prompted. It returns the account address (i.e. 0x56183a35c057f32dc71307dec8b8c60da055eae2) and creates a key in testnet/keys/ropsten
 
 ```
@@ -93,6 +99,14 @@ parity ui --config ./kovan-config.toml --ui-no-validation -lrpc=trace
 parity --config ./ropsten-config.toml -lrpc=trace
 ```
 
+  * Note: It will start synchronising with the Ropsten Network having ~2.3k blocks,
+  where each 100k blocks use up about 0.8Gb of hard drive space in:
+    * /Users/Ls/Library/Application Support/io.parity.ethereum/testnet/chains/test/db
+
+    * Check if client is on revived chain by comparing to the block numbers at:
+      * http://pool.ropsten.ethereum.org
+      * http://ropsten.etherscan.io
+
 ## References:
 
 * Parity Basic Usage - https://github.com/paritytech/parity/wiki/Basic-Usage
@@ -104,6 +118,11 @@ parity --config ./ropsten-config.toml -lrpc=trace
 
 * Rinkeby Testnet - http://rinkeby.io
   * Crypto Faucey - Obtain Test Ether
+
+* Etherscan TestNets - https://testnet.etherscan.io/
+  * Kovan - https://kovan.etherscan.io/
+  * Ropsten - https://ropsten.etherscan.io/
+  * Rinkeby - https://rinkeby.etherscan.io/
 
 
 

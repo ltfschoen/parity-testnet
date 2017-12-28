@@ -70,8 +70,8 @@ max_pending_peers = 64
 no_serve_light = false
 
 # node_key = "None"
-reserved_only = false
-# reserved_peers = "$HOME/Library/Application Support/io.parity.ethereum/testnet/enodes"
+reserved_only = true
+reserved_peers = "./ropstenpeers.txt"
 
 # API and Console Options:
 [rpc]
