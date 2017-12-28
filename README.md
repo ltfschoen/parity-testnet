@@ -12,7 +12,56 @@
 echo 'export PATH=/Applications/Parity\ Ethereum.app/Contents/MacOS:$PATH' >> ~/.bash_profile && source ~/.bash_profile
 ```
 
-## Setup Kovan Test Network
+
+## Setup Ropsten Test Network (PoW)
+
+* Create ropsten-config.toml
+
+* Add Ropsten peers to ropstenpeers.txt (to allow connection to peers for syncing) - https://github.com/ethereum/ropsten
+
+```
+echo -e "enode://20c9ad97c081d63397d7b685a412227a40e23c8bdc6688c6f37e97cfbc22d2b4d1db1510d8f61e6a8866ad7f0e17c02b14182d37ea7c3c8b9c2683aeb6b733a1@52.169.14.227:30303\nenode://6ce05930c72abc632c58e2e4324f7c7ea478cec0ed4fa2528982cf34483094e9cbc9216e7aa349691242576d552a2a56aaeae426c5303ded677ce455ba1acd9d@13.84.180.240:30303" >> ropstenpeers.txt
+```
+
+* Create a signer account for use by the Miner in the Ropsten Network. Entered and confirmed a fake password when prompted. It returns the account address (i.e. 0x56183a35c057f32dc71307dec8b8c60da055eae2) and creates a key in testnet/keys/ropsten
+
+```
+parity account new --chain ropsten --keys-path "/Users/Ls/Library/Application Support/io.parity.ethereum/testnet/keys" --db-path "Users/Ls/Library/Application Support/io.parity.ethereum/testnet/chains"
+```
+
+* Replace relevant addresses for Operation Options and Miner Options in kovan-config.toml with the account address that was generated
+
+* Remove `engine_signer = "0x56183a35c057f32dc71307dec8b8c60da055eae2"` since cannot set engine signer on a PoW chain
+
+* Run the Parity Node with the custom configuration that uses the Ropsten Network 
+
+  * UI version
+    * Add to WebSocket config `origins = ["http://127.0.0.1:8180"]`
+
+```
+parity ui --config ./kovan-config.toml -lrpc=trace
+```
+
+  * CLI version
+
+```
+parity --config ./ropsten-config.toml -lrpc=trace
+```
+
+  * Note: It will start synchronising with the Ropsten Network having ~2.3k blocks,
+  where each 100k blocks use up about 0.8Gb of hard drive space in:
+    * /Users/Ls/Library/Application Support/io.parity.ethereum/testnet/chains/test/db
+
+    * Check if client is on revived chain by comparing to the block numbers at:
+      * http://pool.ropsten.ethereum.org
+      * http://ropsten.etherscan.io
+
+  * [ ] - TODO - Setup EthMiner 
+    * https://medium.com/@joshua_e_k/setting-up-ethereum-smart-contract-development-using-parity-on-ubuntu-abca4da3dce2
+
+* Note: `--ui-no-validation` is a development option that should never be used. Instead modify the list of permitted `origins` for WebSockets. Reference: https://github.com/paritytech/parity/issues/7393#issuecomment-354273075
+
+## Setup Kovan Test Network (PoA)
 
 * Create kovan-config.toml
 
@@ -75,57 +124,13 @@ parity signer new-token --config /Users/Ls/code/blockchain/parity-docker/kovan-c
 parity --config ./kovan-config.toml -lrpc=trace
 ```
 
+* [ ] - TODO - Setp Proof of Authority Chains with Validator engines
+  * https://github.com/paritytech/parity/wiki/Proof-of-Authority-Chains
+  * https://github.com/paritytech/parity/wiki/Pluggable-Consensus#validator-engines
+
 * Acquire Kovan Ether https://github.com/kovan-testnet/config
 
 * Kill Kovan Network Blockchain Database `parity --chain kovan db kill`
-
-## Setup Ropsten Test Network
-
-* Create ropsten-config.toml
-
-* Add Ropsten peers to ropstenpeers.txt (to allow connection to peers for syncing) - https://github.com/ethereum/ropsten
-
-```
-echo -e "enode://20c9ad97c081d63397d7b685a412227a40e23c8bdc6688c6f37e97cfbc22d2b4d1db1510d8f61e6a8866ad7f0e17c02b14182d37ea7c3c8b9c2683aeb6b733a1@52.169.14.227:30303\nenode://6ce05930c72abc632c58e2e4324f7c7ea478cec0ed4fa2528982cf34483094e9cbc9216e7aa349691242576d552a2a56aaeae426c5303ded677ce455ba1acd9d@13.84.180.240:30303" >> ropstenpeers.txt
-```
-
-* Create a signer account for use by the Miner in the Ropsten Network. Entered and confirmed a fake password when prompted. It returns the account address (i.e. 0x56183a35c057f32dc71307dec8b8c60da055eae2) and creates a key in testnet/keys/ropsten
-
-```
-parity account new --chain ropsten --keys-path "/Users/Ls/Library/Application Support/io.parity.ethereum/testnet/keys" --db-path "Users/Ls/Library/Application Support/io.parity.ethereum/testnet/chains"
-```
-
-* Replace relevant addresses for Operation Options and Miner Options in kovan-config.toml with the account address that was generated
-
-* Remove `engine_signer = "0x56183a35c057f32dc71307dec8b8c60da055eae2"` since cannot set engine signer on a PoW chain
-
-* Run the Parity Node with the custom configuration that uses the Ropsten Network 
-
-  * UI version
-    * Add to WebSocket config `origins = ["http://127.0.0.1:8180"]`
-
-```
-parity ui --config ./kovan-config.toml -lrpc=trace
-```
-
-  * CLI version
-
-```
-parity --config ./ropsten-config.toml -lrpc=trace
-```
-
-  * Note: It will start synchronising with the Ropsten Network having ~2.3k blocks,
-  where each 100k blocks use up about 0.8Gb of hard drive space in:
-    * /Users/Ls/Library/Application Support/io.parity.ethereum/testnet/chains/test/db
-
-    * Check if client is on revived chain by comparing to the block numbers at:
-      * http://pool.ropsten.ethereum.org
-      * http://ropsten.etherscan.io
-
-  * [ ] - TODO - Setup EthMiner 
-    * https://medium.com/@joshua_e_k/setting-up-ethereum-smart-contract-development-using-parity-on-ubuntu-abca4da3dce2
-
-* Note: `--ui-no-validation` is a development option that should never be used. Instead modify the list of permitted `origins` for WebSockets. Reference: https://github.com/paritytech/parity/issues/7393#issuecomment-354273075
 
 ## References:
 

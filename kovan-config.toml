@@ -96,7 +96,7 @@ hosts = ["none"]
 # server_threads = "None"
 # threads = 0
 
-# WebSockers Server Options:
+# WebSockets Server Options:
 [websockets]
 # no_ws = false
 disable = false
