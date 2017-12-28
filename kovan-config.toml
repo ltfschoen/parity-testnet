@@ -15,7 +15,7 @@ no_consensus = false
 # (1) JSON chain specification file
 # (2) "olympic", "frontier", "homestead", "mainnet", "morden", 
 #     "ropsten", "classic", "expanse", "testnet", "kovan", "dev"
-chain = "ropsten"
+chain = "kovan"
 base_path = "$HOME/Library/Application Support/io.parity.ethereum/testnet"
 db_path = "$HOME/Library/Application Support/io.parity.ethereum/testnet/chains"
 keys_path = "$HOME/Library/Application Support/io.parity.ethereum/testnet/keys"
