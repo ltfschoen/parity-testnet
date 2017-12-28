@@ -28,7 +28,7 @@ no_persistent_txqueue = false
 
 # Account Options:
 [account]    
-unlock = ["0x983696f4594180ab677e76835834f871b21fe5b2"]
+unlock = ["0x56183a35c057f32dc71307dec8b8c60da055eae2"]
 password = ["/Users/Ls/Library/Application Support/io.parity.ethereum/testnet/passwords/node.pwds"]
 keys_iterations = 10240
 no_hardware_wallets = false
@@ -56,7 +56,8 @@ snapshot_peers = 0
 nat = "any"
 # Override network identifier from the chain we are on
 # Note: Kovan has ID of 42
-id = 42
+# Note: Ropsten has ID of 3
+id = 3
 bootnodes = []
 # no_discovery = false
 discovery = true
@@ -156,9 +157,7 @@ hosts = ["none"]
 # Mining Options:
 [mining]
 # Default: "None"
-author = "0x983696f4594180ab677e76835834f871b21fe5b2"
-# Default: "None"
-engine_signer = "0x983696f4594180ab677e76835834f871b21fe5b2"
+author = "0x56183a35c057f32dc71307dec8b8c60da055eae2"
 # Default: false
 force_sealing = true
 # OPTIONS: "none", "own", "ext", "all"
