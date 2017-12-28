@@ -1,5 +1,17 @@
 # Parity Node using Kovan and Ropsten Test Networks
 
+## Setup Parity Client (macOS)
+
+* Download Parity Installer for Mac from https://github.com/paritytech/parity/releases
+
+* Validate Checksum of download prior to running it: `shasum -a 256 parity-1.8.4-macos-installer.pkg`
+
+* Add Parity command to PATH:
+
+```
+echo 'export PATH=/Applications/Parity\ Ethereum.app/Contents/MacOS:$PATH' >> ~/.bash_profile && source ~/.bash_profile
+```
+
 ## Setup Kovan Test Network
 
 * Create kovan-config.toml
