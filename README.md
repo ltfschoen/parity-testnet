@@ -107,6 +107,9 @@ parity --config ./ropsten-config.toml -lrpc=trace
       * http://pool.ropsten.ethereum.org
       * http://ropsten.etherscan.io
 
+  * [ ] - TODO - Setup EthMiner 
+    * https://medium.com/@joshua_e_k/setting-up-ethereum-smart-contract-development-using-parity-on-ubuntu-abca4da3dce2
+
 ## References:
 
 * Parity Basic Usage - https://github.com/paritytech/parity/wiki/Basic-Usage
