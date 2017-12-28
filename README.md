@@ -112,17 +112,20 @@ parity --config ./ropsten-config.toml -lrpc=trace
 * Parity Basic Usage - https://github.com/paritytech/parity/wiki/Basic-Usage
 * Parity Configuration - https://github.com/paritytech/parity/wiki/Configuring-Parity
 * Parity Testnet CLI Example - https://github.com/paritytech/parity/issues/4618
-* Kovan TestNet Config - https://github.com/kovan-testnet/config
-
 * Parity Setting up two nodes witn PoA - https://github.com/paritytech/parity/wiki/Demo-PoA-tutorial
 
-* Rinkeby Testnet - http://rinkeby.io
-  * Crypto Faucey - Obtain Test Ether
+* Common
+  * Etherscan TestNets - https://testnet.etherscan.io/
 
-* Etherscan TestNets - https://testnet.etherscan.io/
-  * Kovan - https://kovan.etherscan.io/
-  * Ropsten - https://ropsten.etherscan.io/
-  * Rinkeby - https://rinkeby.etherscan.io/
+* Kovan - 
+  * https://github.com/kovan-testnet/proposal
+  * Kovan TestNet Config - https://github.com/kovan-testnet/config
+  * https://kovan.etherscan.io/
+* Ropsten - https://ropsten.etherscan.io/
+* Rinkeby
+  * Rinkeby Testnet - http://rinkeby.io
+    * Crypto Faucey - Obtain Test Ether
+  * https://rinkeby.etherscan.io/
 
 
 
