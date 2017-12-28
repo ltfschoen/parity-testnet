@@ -109,7 +109,7 @@ interface = "local"
 # Note: Inconsistent since "Default" list includes values that are not in "Available" list
 apis = ["web3", "eth", "net", "personal", "parity", "traces", "rpc", "secretstore"]
 # OPTIONS: "all", "none"
-origins = ["none"]
+origins = ["http://127.0.0.1:8180"]
 # OPTIONS: "all", "none"
 hosts = ["none"]
 

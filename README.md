@@ -43,10 +43,12 @@ echo 'test123456' >> "$HOME/Library/Application Support/io.parity.ethereum/testn
 
 * Run the Parity Node with the custom configuration that uses the Kovan Network 
 
-  * UI version. Change UI Options to `force = true`
+  * UI version. 
+    * Change UI Options to `force = true`
+    * Add to WebSocket config `origins = ["http://127.0.0.1:8180"]`
 
 ```
-parity ui --config ./kovan-config.toml --ui-no-validation
+parity ui --config ./kovan-config.toml
 ```
 
   * UI version without no validation flag (NOT WORKING). See https://github.com/paritytech/parity/issues/7393
@@ -100,9 +102,10 @@ parity account new --chain ropsten --keys-path "/Users/Ls/Library/Application Su
 * Run the Parity Node with the custom configuration that uses the Ropsten Network 
 
   * UI version
+    * Add to WebSocket config `origins = ["http://127.0.0.1:8180"]`
 
 ```
-parity ui --config ./kovan-config.toml --ui-no-validation -lrpc=trace
+parity ui --config ./kovan-config.toml -lrpc=trace
 ```
 
   * CLI version
@@ -121,6 +124,8 @@ parity --config ./ropsten-config.toml -lrpc=trace
 
   * [ ] - TODO - Setup EthMiner 
     * https://medium.com/@joshua_e_k/setting-up-ethereum-smart-contract-development-using-parity-on-ubuntu-abca4da3dce2
+
+* Note: `--ui-no-validation` is a development option that should never be used. Instead modify the list of permitted `origins` for WebSockets. Reference: https://github.com/paritytech/parity/issues/7393#issuecomment-354273075
 
 ## References:
 
