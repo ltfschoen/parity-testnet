@@ -138,6 +138,7 @@ parity --config ./kovan-config.toml -lrpc=trace
 * Parity Configuration - https://github.com/paritytech/parity/wiki/Configuring-Parity
 * Parity Testnet CLI Example - https://github.com/paritytech/parity/issues/4618
 * Parity Setting up two nodes witn PoA - https://github.com/paritytech/parity/wiki/Demo-PoA-tutorial
+* Parity Node TOML Config File Generator - https://paritytech.github.io/parity-config-generator/
 
 * Common
   * Etherscan TestNets - https://testnet.etherscan.io/
